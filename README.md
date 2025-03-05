@@ -1,1 +1,1 @@
-Random thoughts
+Some Thoughts
