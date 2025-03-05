@@ -6,19 +6,22 @@
     <meta charset="utf-8">
     <title>Countably Infinite</title>
     <style>
-        h1,h2,h3,h4{font-family:Calibri}
-        p{font-family:Calibri}
-        body{margin-left:200px;
-             margin-right:200px}
-    </style>
+      h1,h2,h3,h4{font-family:Calibri}
+      summary{font-family:Calibri; font-size:20px}
+      p{font-family:Calibri}
+      body{margin-left:200px; margin-right:200px; font-size:12px; max-width:624}
+    </style> 
   </head>
 
   <body>
     <h1>Some Thoughts</h1>
     <br>
 
-    <h2>Amateur</h2>
-    <p>
+    <a href='#/' id="toggleButton" onclick="toggleAll()">Expand All</a>
+
+    <details>
+      <summary>Amateur</summary>
+      <p>
         newbie<br>
         first-timer, but not really<br>
         getting started<br>
@@ -43,15 +46,17 @@
         typing jerkily with one hand<br><br>
         
         what will become of this?<br>
-    </p>
-    <p style="color:green">
+      </p>
+      <p style="color:green">
         <b>(1)</b>  11/13/2022 – Starting something new on a quiet Sunday evening. 
         A student studying for a math midterm.
-    </p>
-    <br>
-
-    <h2>Some Smells</h2>
-    <p>
+      </p>
+      <br>
+    </details>
+    
+    <details>
+      <summary>Some Smells</summary>
+      <p>
         Some smells are nice<br>
         like some flowers or some candles.<br>
         Some smells aren’t so nice<br>
@@ -71,15 +76,39 @@
         there isn’t much hope.<br>
         But you keep hoping anyway<br>
         because you have to.<br>
-    </p>
-    <p style="color:green">
+      </p>
+      <p style="color:green">
         <b>(2)</b>	11/13/2022 – The intersection of frustration and hope. 
         An environmentalist starting to really like this writing stuff. 
-    </p>
-    <br>
+      </p>
+      <br>
+    </details>
 
-    <h2>next poem</h2>
+    <details>
+      <summary>next poem</summary>
+      <p>
+        text.
+      </p>
+    </details>
     
+  
+    <script>
+      function toggleAll() {
+      const detailsElements = document.querySelectorAll('details');
+      const button = document.getElementById('toggleButton');
+      // Check if any section is collapsed
+      const anyCollapsed = Array.from(detailsElements).some(detail => !detail.hasAttribute('open'));
+      if (anyCollapsed) {
+        // If any section is collapsed, expand all
+        detailsElements.forEach(detail => detail.setAttribute('open', ''));
+        button.textContent = "Collapse All";  // Change button text to "Collapse All"
+      } else {
+        // If all sections are expanded, collapse all
+        detailsElements.forEach(detail => detail.removeAttribute('open'));
+        button.textContent = "Expand All";  // Change button text to "Expand All"
+      }
+    }
+    </script>
 
   </body>
 
